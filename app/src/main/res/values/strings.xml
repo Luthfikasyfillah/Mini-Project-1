@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">Mini Project 1</string>
+    <string name="app_name">Menghitung Diskon</string>
+    <string name="konversi_waktu_intro">Hitung Diskon</string>
+    <string name="harga_awal">Harga Awal</string>
+    <string name="harga_akhir">Harga Akhir</string>
+    <string name="cek">Cek</string>
+    <string name="error_input_empty">Input tidak boleh kosong.</string>
+    <string name="custom_diskon">Diskon Khusus</string>
+    <string name="reset">Reset</string>
+    <string name="hasil_diskon">Anda menghemat %1$s</string>
 </resources>
