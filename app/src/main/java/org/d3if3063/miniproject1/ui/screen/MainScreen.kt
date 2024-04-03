@@ -152,7 +152,7 @@ fun ScreenContent(modifier: Modifier) {
                     value = customDiskon,
                     onValueChange = {
                         customDiskon = it
-                        diskonPercent = 0f // Reset other options when custom diskon is updated
+                        diskonPercent = 0f
                     },
                     label = { Text(text = stringResource(R.string.custom_diskon)) },
                     trailingIcon = { IconPicker(customDiskon.isEmpty() && diskonError, "") },
@@ -162,9 +162,9 @@ fun ScreenContent(modifier: Modifier) {
                         keyboardType = KeyboardType.Number,
                         imeAction = ImeAction.Done
                     ),
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.fillMaxWidth()
                 )
-                Spacer(modifier = Modifier.width(16.dp)) // Spacer untuk menjaga space di sebelah kanan
+                Spacer(modifier = Modifier.width(16.dp))
             }
         }
 

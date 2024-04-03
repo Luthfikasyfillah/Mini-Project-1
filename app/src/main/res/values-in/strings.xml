@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Discount App</string>
+    <string name="konversi_waktu_intro">Mulai hitung diskonmu sekarang! Masukkan harga awal dan jumlah diskon untuk temukan harga akhirnya.</string>
+    <string name="harga_awal">Harga Awal</string>
+    <string name="harga_akhir">Harga Akhir</string>
+    <string name="cek">Cek</string>
+    <string name="custom_diskon">Diskon Khusus</string>
+    <string name="reset">Reset</string>
+    <string name="hasil_diskon">Anda menghemat %1$s</string>
+    <string name="error_input_empty">Tidak boleh kosong.</string>
+    <string name="tentang_aplikasi">Tentang Aplikasi</string>
+    <string name="copyright">Aplikasi ini adalah kalkulator diskon sederhana yang memungkinkan pengguna untuk menghitung harga akhir dari sebuah produk setelah diberikan diskon. Pengguna dapat memasukkan harga awal produk serta memilih diskon yang telah ditentukan (25%, 50%, atau 75%) atau memasukkan diskon kustom. \n\nAplikasi akan menghitung harga akhir produk berdasarkan input pengguna dan menampilkan hasilnya. Selain itu, aplikasi juga memberikan notifikasi jika terjadi kesalahan pada input pengguna seperti harga awal kosong atau format diskon tidak valid. Dengan antarmuka yang sederhana dan mudah digunakan, aplikasi ini cocok digunakan untuk membantu pengguna dalam menghitung harga produk dengan diskon dengan cepat dan efisien. \n\nAplikasi ini dibuat untuk Assessment 1\nMobpro 1.\n\nCopyright © 2021 - 2024 Luthfi Kasyfillah. \nAllrights reserved.</string>
+    <string name="kembali">Kembali</string>
+    <string name="bagikan">Bagikan</string>
+    <string name="bagikan_template">Anda menghemat %1$s</string>
+</resources>
