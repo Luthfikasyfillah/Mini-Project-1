@@ -1,5 +1,7 @@
 package org.d3if3063.miniproject1.ui.screen
 
+import android.content.Context
+import android.content.Intent
 import android.content.res.Configuration
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -8,9 +10,11 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Warning
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
@@ -19,16 +23,21 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import org.d3if3063.miniproject1.R
+import org.d3if3063.miniproject1.navigation.Screen
 import org.d3if3063.miniproject1.ui.theme.MiniProject1Theme
 
 fun String.isNumeric(): Boolean {
@@ -37,7 +46,7 @@ fun String.isNumeric(): Boolean {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen() {
+fun MainScreen(navController: NavHostController) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -47,7 +56,18 @@ fun MainScreen() {
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                     titleContentColor = MaterialTheme.colorScheme.primary,
-                )
+                ),
+                actions = {
+                    IconButton(
+                        onClick = {
+                            navController.navigate(Screen.About.route)
+                        }) {
+                        Icon(
+                            imageVector = Icons.Outlined.Info,
+                            contentDescription = stringResource(R.string.tentang_aplikasi),
+                            tint = MaterialTheme.colorScheme.primary)
+                    }
+                }
             )
         }
     ) { padding ->
@@ -57,12 +77,14 @@ fun MainScreen() {
 
 @Composable
 fun ScreenContent(modifier: Modifier) {
-    var hargaAwal by remember { mutableStateOf("") }
-    var hargaAkhir by remember { mutableStateOf("") }
-    var diskonError by remember { mutableStateOf(false) }
-    var diskonPercent by remember { mutableFloatStateOf(0.25f) }
-    var customDiskon by remember { mutableStateOf("") }
-    var isCustomDiskonSelected by remember { mutableStateOf(false) }
+    var hargaAwal by rememberSaveable { mutableStateOf("") }
+    var hargaAkhir by rememberSaveable { mutableStateOf("") }
+    var diskonError by rememberSaveable { mutableStateOf(false) }
+    var diskonPercent by rememberSaveable { mutableFloatStateOf(0.25f) }
+    var customDiskon by rememberSaveable { mutableStateOf("") }
+    var isCustomDiskonSelected by rememberSaveable { mutableStateOf(false) }
+
+    val context = LocalContext.current
 
     Column(
         modifier = modifier
@@ -208,6 +230,18 @@ fun ScreenContent(modifier: Modifier) {
                 text = stringResource(R.string.hasil_diskon, sisaHargaAwal),
                 style = MaterialTheme.typography.bodyLarge
             )
+            Button(
+                onClick = {
+                    sharedata(
+                        context = context,
+                        message = context.getString(R.string.bagikan_template, sisaHargaAwal)
+                    )
+                },
+                modifier= Modifier.padding(top = 8.dp),
+                contentPadding = PaddingValues(horizontal = 32.dp, vertical = 16.dp)
+            ) {
+                Text(text = stringResource(R.string.bagikan))
+            }
         }
     }
 }
@@ -255,11 +289,21 @@ fun ErrorHint(isError: Boolean, errorText: String) {
     }
 }
 
+private fun  sharedata(context: Context, message:String) {
+    val shareIntent = Intent(Intent.ACTION_SEND).apply {
+         type = "text/plain"
+        putExtra(Intent.EXTRA_TEXT, message)
+    }
+    if (shareIntent.resolveActivity(context.packageManager) != null) {
+        context.startActivity(shareIntent)
+    }
+}
+
 @Preview(showBackground = true)
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
 @Composable
 fun ScreenPreview() {
     MiniProject1Theme {
-        MainScreen()
+        MainScreen(rememberNavController())
     }
 }
