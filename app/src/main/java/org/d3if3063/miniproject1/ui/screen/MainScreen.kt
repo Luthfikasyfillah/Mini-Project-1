@@ -60,7 +60,7 @@ fun ScreenContent(modifier: Modifier) {
     var hargaAwal by remember { mutableStateOf("") }
     var hargaAkhir by remember { mutableStateOf("") }
     var diskonError by remember { mutableStateOf(false) }
-    var diskonPercent by remember { mutableStateOf(0.25f) } // Default diskon 25%
+    var diskonPercent by remember { mutableFloatStateOf(0.25f) }
     var customDiskon by remember { mutableStateOf("") }
     var isCustomDiskonSelected by remember { mutableStateOf(false) }
 
@@ -82,7 +82,7 @@ fun ScreenContent(modifier: Modifier) {
             value = hargaAwal,
             onValueChange = { hargaAwal = it },
             label = { Text(text = stringResource(R.string.harga_awal)) },
-            trailingIcon = { IconPicker(hargaAwal.isEmpty() && diskonError, hargaAwal) },
+            trailingIcon = { IconPicker(hargaAwal.isEmpty() && diskonError, "") },
             supportingText = { ErrorHint(hargaAwal.isEmpty() && diskonError, stringResource(R.string.error_input_empty)) },
             singleLine = true,
             keyboardOptions = KeyboardOptions(
@@ -125,22 +125,25 @@ fun ScreenContent(modifier: Modifier) {
 
         // Input field untuk memasukkan jumlah diskon sendiri
         if (isCustomDiskonSelected) {
-            OutlinedTextField(
-                value = customDiskon,
-                onValueChange = {
-                    customDiskon = it
-                    diskonPercent = 0f // Reset other options when custom diskon is updated
-                },
-                label = { Text(text = stringResource(R.string.custom_diskon)) },
-                trailingIcon = { IconPicker(customDiskon.isEmpty() && diskonError, customDiskon) },
-                supportingText = { ErrorHint(customDiskon.isEmpty() && diskonError, stringResource(R.string.error_input_empty)) },
-                singleLine = true,
-                keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Number,
-                    imeAction = ImeAction.Done
-                ),
-                modifier = Modifier.fillMaxWidth()
-            )
+            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                OutlinedTextField(
+                    value = customDiskon,
+                    onValueChange = {
+                        customDiskon = it
+                        diskonPercent = 0f // Reset other options when custom diskon is updated
+                    },
+                    label = { Text(text = stringResource(R.string.custom_diskon)) },
+                    trailingIcon = { IconPicker(customDiskon.isEmpty() && diskonError, "") },
+                    supportingText = { ErrorHint(customDiskon.isEmpty() && diskonError, stringResource(R.string.error_input_empty)) },
+                    singleLine = true,
+                    keyboardOptions = KeyboardOptions(
+                        keyboardType = KeyboardType.Number,
+                        imeAction = ImeAction.Done
+                    ),
+                    modifier = Modifier.weight(1f)
+                )
+                Spacer(modifier = Modifier.width(16.dp)) // Spacer untuk menjaga space di sebelah kanan
+            }
         }
 
         // Inputan harga akhir
@@ -202,7 +205,7 @@ fun ScreenContent(modifier: Modifier) {
                 }
             }
             Text(
-                text = stringResource(R.string.hasil_diskon, hargaAwal, sisaHargaAwal),
+                text = stringResource(R.string.hasil_diskon, sisaHargaAwal),
                 style = MaterialTheme.typography.bodyLarge
             )
         }
@@ -239,9 +242,11 @@ fun IconPicker(isError: Boolean, unit: String) {
     if (isError) {
         Icon(imageVector = Icons.Filled.Warning, contentDescription = null)
     } else {
-        // Text(unit)
+        // Placeholder untuk unit
+        Text(unit)
     }
 }
+
 
 @Composable
 fun ErrorHint(isError: Boolean, errorText: String) {
