@@ -39,6 +39,11 @@ import androidx.navigation.compose.rememberNavController
 import org.d3if3063.miniproject1.R
 import org.d3if3063.miniproject1.navigation.Screen
 import org.d3if3063.miniproject1.ui.theme.MiniProject1Theme
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.painterResource
 
 fun String.isNumeric(): Boolean {
     return this.matches("-?\\d+(\\.\\d+)?".toRegex())
@@ -89,7 +94,8 @@ fun ScreenContent(modifier: Modifier) {
     Column(
         modifier = modifier
             .fillMaxSize()
-            .padding(16.dp),
+            .padding(16.dp)
+            .verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.spacedBy(12.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -230,6 +236,16 @@ fun ScreenContent(modifier: Modifier) {
                 text = stringResource(R.string.hasil_diskon, sisaHargaAwal),
                 style = MaterialTheme.typography.bodyLarge
             )
+
+            // Menambahkan gambar
+            Image(
+                painter = painterResource(id = R.drawable.good),
+                contentDescription = null,
+                modifier = Modifier
+                    .padding(top = 16.dp)
+                    .size(100.dp) // Ubah ukuran gambar sesuai kebutuhan Anda
+            )
+
             Button(
                 onClick = {
                     sharedata(
