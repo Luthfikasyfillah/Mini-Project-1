@@ -13,8 +13,8 @@
         yang memungkinkan pengguna untuk menghitung harga akhir dari sebuah
         produk setelah diberikan diskon. Pengguna dapat memasukkan harga awal
         produk serta memilih diskon yang telah ditentukan (25%, 50%, atau 75%)
-        atau memasukkan diskon kustom. \n\nAplikasi akan menghitung harga akhir
-        produk berdasarkan input pengguna dan menampilkan hasilnya. Selain itu,
+        atau memasukkan diskon kustom. Aplikasi akan menghitung harga akhir
+        produk berdasarkan input pengguna dan menampilkan hasilnya. \n\nSelain itu,
         aplikasi juga memberikan notifikasi jika terjadi kesalahan pada input
         pengguna seperti harga awal kosong atau format diskon tidak valid.
         Dengan antarmuka yang sederhana dan mudah digunakan, aplikasi ini cocok
@@ -25,4 +25,6 @@
     <string name="kembali">Kembali</string>
     <string name="bagikan">Bagikan</string>
     <string name="bagikan_template">Anda menghemat %1$s</string>
+    <string name="pengaturan">Pengaturan</string>
+    <string name="belum_bisa">Belum ada fitur pengaturan.</string>
 </resources>

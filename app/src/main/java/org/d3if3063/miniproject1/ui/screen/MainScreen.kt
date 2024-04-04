@@ -3,6 +3,7 @@ package org.d3if3063.miniproject1.ui.screen
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
+import android.widget.Toast
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.selection.selectable
@@ -42,6 +43,7 @@ import org.d3if3063.miniproject1.ui.theme.MiniProject1Theme
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
 
@@ -52,6 +54,8 @@ fun String.isNumeric(): Boolean {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(navController: NavHostController) {
+    val context = LocalContext.current
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -66,11 +70,24 @@ fun MainScreen(navController: NavHostController) {
                     IconButton(
                         onClick = {
                             navController.navigate(Screen.About.route)
-                        }) {
+                        }
+                    ) {
                         Icon(
                             imageVector = Icons.Outlined.Info,
                             contentDescription = stringResource(R.string.tentang_aplikasi),
-                            tint = MaterialTheme.colorScheme.primary)
+                            tint = MaterialTheme.colorScheme.primary
+                        )
+                    }
+                    IconButton(
+                        onClick = {
+                            Toast.makeText(context, R.string.belum_bisa, Toast.LENGTH_SHORT).show()
+                        }
+                    ) {
+                        Icon(
+                            imageVector = Icons.Filled.Settings,
+                            contentDescription = stringResource(R.string.pengaturan),
+                            tint = MaterialTheme.colorScheme.primary
+                        )
                     }
                 }
             )
@@ -177,7 +194,7 @@ fun ScreenContent(modifier: Modifier) {
         // Inputan harga akhir
         OutlinedTextField(
             value = hargaAkhir,
-            onValueChange = { /* Do nothing */ },
+            onValueChange = { },
             label = { Text(text = stringResource(R.string.harga_akhir)) },
             modifier = Modifier.fillMaxWidth()
         )
@@ -243,7 +260,7 @@ fun ScreenContent(modifier: Modifier) {
                 contentDescription = null,
                 modifier = Modifier
                     .padding(top = 16.dp)
-                    .size(100.dp) // Ubah ukuran gambar sesuai kebutuhan Anda
+                    .size(100.dp)
             )
 
             Button(
@@ -292,7 +309,6 @@ fun IconPicker(isError: Boolean, unit: String) {
     if (isError) {
         Icon(imageVector = Icons.Filled.Warning, contentDescription = null)
     } else {
-        // Placeholder untuk unit
         Text(unit)
     }
 }

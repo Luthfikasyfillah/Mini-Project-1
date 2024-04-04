@@ -10,8 +10,22 @@
     <string name="hasil_diskon">You save %1$s</string>
     <string name="error_input_empty">It cannot be empty.</string>
     <string name="tentang_aplikasi">About App</string>
-    <string name="copyright">This app is a simple discount calculator that allows users to calculate the final price of a product after a discount has been applied. The user can enter the initial price of the of the product as well as select a predefined discount (25%, 50%, or 75%) or enter a custom discount. \n\nThe application will calculate the final price of the based on the user input and display the result. In addition, application also provides a notification if there is an error in the user input such as the such as an empty starting price or invalid discount format. With a simple and easy-to-use interface, this application is suitable used to assist users in calculating product prices with discounts quickly and efficiently. \n\nThis application was created for Assessment 1 \nMobpro 1.  \n\nCopyright © 2021 - 2024 Luthfi Kasyfillah.  \nAllrights reserved.</string>
+    <string name="copyright">This app is a simple discount calculator
+        that allows users to calculate the final price of a
+        product after a discount has been applied. The user can enter the initial price of the
+        of the product as well as select a predefined discount (25%, 50%, or 75%)
+        or enter a custom discount. The application will calculate the final price of the
+        based on the user input and display the result. \n\nIn addition,
+        application also provides notifications if there are errors in the user's input such as
+        such as empty starting price or invalid discount format.
+        With a simple and easy-to-use interface, this application is suitable
+        used to assist users in calculating product prices with
+        discounts quickly and efficiently. \n\nThis application is made for Assessment 1
+        \nMobpro 1.\n\nCopyright © 2021 - 2024 Luthfi Kasyfillah. \All rights reserved.
+        reserved.</string>
     <string name="kembali">Back</string>
     <string name="bagikan">Share</string>
     <string name="bagikan_template">You save %1$s</string>
+    <string name="pengaturan">Settings</string>
+    <string name="belum_bisa">There is no settings feature yet.</string>
 </resources>
