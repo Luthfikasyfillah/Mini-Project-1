@@ -10,19 +10,7 @@
     <string name="hasil_diskon">You save %1$s</string>
     <string name="error_input_empty">It cannot be empty.</string>
     <string name="tentang_aplikasi">About App</string>
-    <string name="copyright">This app is a simple discount calculator
-        that allows users to calculate the final price of a
-        product after a discount has been applied. The user can enter the initial price of the
-        of the product as well as select a predefined discount (25%, 50%, or 75%)
-        or enter a custom discount. The application will calculate the final price of the
-        based on the user input and display the result. \n\nIn addition,
-        application also provides notifications if there are errors in the user's input such as
-        such as empty starting price or invalid discount format.
-        With a simple and easy-to-use interface, this application is suitable
-        used to assist users in calculating product prices with
-        discounts quickly and efficiently. \n\nThis application is made for Assessment 1
-        \nMobpro 1.\n\nCopyright © 2021 - 2024 Luthfi Kasyfillah. \All rights reserved.
-        reserved.</string>
+    <string name="copyright">Aplikasi ini adalah kalkulator diskon sederhana yang memungkinkan pengguna untuk menghitung harga akhir dari sebuah produk setelah diberikan diskon.\n\nPengguna dapat memasukkan harga awal produk serta memilih diskon yang telah ditentukan (25%, 50%, atau 75%) atau memasukkan diskon kustom. Aplikasi akan menghitung harga akhir produk berdasarkan input pengguna dan menampilkan hasilnya.\n\nSelain itu, aplikasi juga memberikan notifikasi jika terjadi kesalahan pada input pengguna seperti harga awal kosong atau format diskon tidak valid. Dengan antarmuka yang sederhana dan mudah digunakan, aplikasi ini cocok digunakan untuk membantu pengguna dalam menghitung harga produk dengan diskon dengan cepat dan efisien.\n\nAplikasi ini dibuat untuk Assessment 1 \nMobpro 1.\n\nCopyright © 2021 – 2024 Luthfi Kasyfillah. All rights reserved.</string>
     <string name="kembali">Back</string>
     <string name="bagikan">Share</string>
     <string name="bagikan_template">You save %1$s</string>

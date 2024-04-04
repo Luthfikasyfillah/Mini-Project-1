@@ -51,7 +51,8 @@ fun AboutScreen(navController: NavHostController) {
             text = stringResource(R.string.copyright),
             modifier = Modifier
                 .padding(padding)
-                .padding(16.dp))
+                .padding(16.dp)
+        )
     }
 }
 
